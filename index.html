@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FireChat - Real-time Messaging</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login Container -->
+    <div id="login-container" class="login-container">
+        <div class="app-logo">
+            <i class="fas fa-comments"></i>
+            <h1>FireChat</h1>
+        </div>
+        <div class="login-header">
+            <h1>Real-Time Messaging</h1>
+            <p>Connect instantly with Firebase-powered chat</p>
+        </div>
+        <div class="login-form">
+            <div id="error-message" class="error-message"></div>
+            <div class="input-group">
+                <label for="display-name">Full Name</label>
+                <input type="text" id="display-name" placeholder="Enter your name" class="hidden">
+            </div>
+            <div class="input-group">
+                <label for="email-input">Email Address</label>
+                <input type="email" id="email-input" placeholder="you@example.com">
+            </div>
+            <div class="input-group">
+                <label for="password-input">Password</label>
+                <input type="password" id="password-input" placeholder="••••••••">
+            </div>
+            <button id="auth-btn">Login</button>
+            <p class="toggle-auth">
+                <span id="toggle-text">Don't have an account?</span>
+                <a href="#" id="toggle-link">Sign up now</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app-container" class="app-container hidden">
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <div id="user-profile" class="user-profile">
+                    <div class="avatar online">
+                        <span id="user-avatar">U</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="name" id="user-name">User</div>
+                        <div class="status">Online</div>
+                    </div>
+                </div>
+                <div class="sidebar-actions">
+                    <button id="new-chat-btn" title="New Chat"><i class="fas fa-plus"></i></button>
+                    <button id="logout-btn" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+            </header>
+            
+            <div class="search-container">
+                <input type="text" id="chat-search" placeholder="Search chats...">
+            </div>
+            
+            <div id="chats-list" class="chats-list">
+                <div class="spinner"></div>
+            </div>
+        </aside>
+
+        <main id="chat-window" class="chat-window">
+            <div id="welcome-screen" class="welcome-screen">
+                <i class="fas fa-comment-dots"></i>
+                <h2>Welcome to FireChat</h2>
+                <p>Select a conversation or create a new chat to start messaging</p>
+            </div>
+            
+            <div id="chat-area" class="hidden">
+                <header id="chat-header" class="chat-header">
+                    <button class="back-to-chats"><i class="fas fa-arrow-left"></i></button>
+                    <div class="avatar online">
+                        <span id="chat-avatar">F</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="name" id="chat-contact-name">Friend</div>
+                        <div class="status" id="chat-status">Online</div>
+                    </div>
+                    <div class="actions">
+                        <button title="Call"><i class="fas fa-phone-alt"></i></button>
+                        <button title="More options"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </header>
+                
+                <div id="messages-container" class="messages-container">
+                    <!-- Messages will appear here -->
+                </div>
+                
+                <div class="chat-input-container">
+                    <form id="chat-input-form" class="chat-input-form">
+                        <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- New Chat Modal -->
+    <div id="new-chat-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Start New Chat</h2>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <div id="users-list" class="users-list">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
